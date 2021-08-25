@@ -5,7 +5,7 @@ driver:
   name: docker
 platforms:
   - name: rhel8
-    image: registry.redhat.io/ubi8-init:latest
+    image: registry.redhat.io/ubi8/ubi:latest
     registry:
       url: registry.redhat.io
       credentials:
@@ -17,7 +17,7 @@ platforms:
     privileged: true
     command: "/usr/sbin/init"
   - name: rhel7
-    image: registry.redhat.io/ubi7-init:latest
+    image: registry.redhat.io/ubi7/ubi:latest
     registry:
       url: registry.redhat.io
       credentials:
