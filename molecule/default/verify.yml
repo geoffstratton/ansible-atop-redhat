@@ -1,0 +1,13 @@
+---
+- name: Verify
+  hosts: all
+
+  tasks:
+    - name: Gather service facts
+      service_facts:
+
+    - name: Verify that atop is running
+      assert:
+        that: "ansible_facts.services['{{ item }}'] is defined and ansible_facts.services['{{ item }}'].state == 'running'"
+      with_items:
+        - atop.service

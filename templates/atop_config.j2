@@ -1,0 +1,6 @@
+#
+# {{ ansible_managed }}
+#
+{% for key, value in atop_conf_params.items() -%}
+  {{ key }}={{ value }}
+{% endfor %}

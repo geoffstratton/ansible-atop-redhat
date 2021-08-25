@@ -1,0 +1,6 @@
+---
+- name: Start and enable atop
+  service:
+    name: "{{ atop.service }}"
+    state: started
+    enabled: yes

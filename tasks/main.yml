@@ -1,0 +1,30 @@
+# Installs and configures atop
+---
+- name: Enable EPEL repo
+  package:
+    name: "{{ 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-' +
+              ansible_distribution_major_version + 
+              '.noarch.rpm'
+              }}"
+    state: present
+    disable_gpg_check: True # Workaround for GPG fail on RHEL 8
+  tags:
+    - atop
+
+- name: Install atop
+  package:
+    name: atop
+    state: present
+  tags:
+    - atop
+
+- name: Create the atop configuration file
+  template:
+    src: atop_config.j2
+    dest: /etc/sysconfig/atop
+    owner: root
+    group: root
+    mode: 0644
+  notify: Start and enable atop
+  tags:
+    - atop

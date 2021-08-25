@@ -1,0 +1,10 @@
+---
+atop:
+  service: 'atop'
+
+atop_conf_params:
+  CURDAY: '`date +%Y%m%d`'
+  LOGPATH: /var/log/atop
+  BINPATH: /usr/bin
+  PID_file: /var/run/atop.pid
+  INTERVAL: 600
